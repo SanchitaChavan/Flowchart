@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Flowchart</title>
+</head>
+<body>
+
+    <style>
+        .button{
+            cursor: pointer;
+  margin: 0;
+  position: absolute;
+  margin-top: 30px;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+    border-radius: 25px;
+
+}
+        .droppable1 {
+  height: 2rem;
+  width: 12rem;
+  margin: 0rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+   border: 2px solid #fff;
+  background-color: white;
+  transition: border-width 0.2s, transform 0.2s, background-color 0.4s;
+}
+        .droppable {
+  height: 1.8rem;
+  width: 12rem;
+  margin: 0rem auto;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background-color: #fff;
+  border: 2px solid #111;
+  transition: border-width 0.2s, transform 0.2s, background-color 0.4s;
+}
+
+.box002:hover {
+  opacity: 0.5;
+}
+.start{
+  height: 1.8rem;
+  width: 8rem;
+  margin: 0rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background-color: #fff;
+  border: 2px solid #111;
+  transition: border-width 0.2s, transform 0.2s, background-color 0.4s;
+}
+.column {
+  float: left;
+  width: 20%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.center{
+            margin-left: auto;
+            margin-right: auto;
+          width: 40%;
+
+}
+
+        .box002 {
+                cursor: move;
+            width: 75px;
+            height: 15px;
+            margin: 12px;
+            padding: 10px;
+            border: 1px solid white;
+        }
+    </style>
+    <div class="center">
+    <div class="box002 column" ondrop="drop003(event)">
+        <text ondragstart="dragStart003(event)" draggable="true" id="target003">Spread Butter</text>
+    </div>
+
+    <div class="box002 column" ondrop="drop004(event)">
+        <text ondragstart="dragStart004(event)" draggable="true" id="target004">Add veggies</text>
+    </div>
+
+    <div class="box002 column" ondrop="drop001(event)">
+        <text ondragstart="dragStart001(event)" draggable="true" id="target001">Gather Ingredients</text>
+    </div>
+
+    <div class="box002 column" ondrop="drop002(event)">
+        <text ondragstart="dragStart002(event)" draggable="true" id="target002">Grab Knife</text>
+    </div>
+
+</div>
+
+
+
+
+
+    <br /><br /><br /><br />
+     <section class="droppable-elements">
+            <div class=" droppable1" ><span></span></div>
+         <div style='font-size:10px; text-align: center; color: white'>&#8681;</div>
+
+        <div class="start" ><span>Start</span></div>
+         <div style='font-size:30px; text-align: center;'>&#8681;</div>
+
+        <div class=" droppable" data-draggable-id="frog" ondrop="drop006(event)"ondragover="allowDrop001(event)" id="place001"><span>1</span></div>
+         <div style='font-size:30px; text-align: center;'>&#8681;</div>
+
+    <div class=" droppable" data-draggable-id="frog" ondrop="drop007(event)" ondragover="allowDrop002(event)" id="place002"><span>2</span></div>
+    <div style='font-size:30px; text-align: center;'>&#8681;</div>
+
+    <div class=" droppable" data-draggable-id="frog" ondrop="drop008(event)" ondragover="allowDrop003(event)" id="place003"><span>3</span></div>
+    <div style='font-size:30px; text-align: center;'>&#8681;</div>
+
+    <div class=" droppable" data-draggable-id="frog" ondrop="drop009(event)" ondragover="allowDrop004(event)" id="place004"><span>4</span></div>
+    <div style='font-size:30px; text-align: center;'>&#8681;</div>
+
+            <div class="start" ><span>Sandwich<br>End</span></div>
+
+
+    <!-- <div class="droppable" data-draggable-id="spider"><span>Spider</span></div>
+    <div class="droppable" data-draggable-id="horse"><span>Horse</span></div>
+    <div class="droppable" data-draggable-id="hippo"><span>Hippo</span></div> -->
+  </section>
+
+
+
+
+ 
+    <button class="button"  style="text-decoration: none; background-color: #b7b4b8"onclick="submit001()"><a href="submit.html">Submit</a></button>
+    <p id="message001"></p>
+
+    <script>
+    var b = 0;
+    b++;
+function dragStart001(event) {
+    event.dataTransfer.setData("choice001", event.target.id);
+    event.dataTransfer.setData("choice002", event.target.id);
+    event.dataTransfer.setData("choice003", event.target.id);
+    event.dataTransfer.setData("choice004", event.target.id);
+    event.dataTransfer.setData("choice005", event.target.id);
+
+}
+
+function dragStart002(event) {
+    event.dataTransfer.setData("choice002", event.target.id);
+}
+
+function dragStart003(event) {
+    event.dataTransfer.setData("choice003", event.target.id);
+}
+
+function dragStart004(event) {
+    event.dataTransfer.setData("choice004", event.target.id);
+}
+
+function dragStart005(event) {
+    event.dataTransfer.setData("choice005", event.target.id);
+}
+
+function allowDrop001(event) {
+    event.preventDefault();
+}
+
+function allowDrop002(event) {
+    event.preventDefault();
+}
+
+function allowDrop003(event) {
+    event.preventDefault();
+}
+
+function allowDrop004(event) {
+    event.preventDefault();
+}
+
+function allowDrop005(event) {
+    event.preventDefault();
+}
+
+function drop006(event) {
+    var data = event.dataTransfer.getData("choice001");
+    event.target.appendChild(document.getElementById(data));
+score001.innerHTML = b++;
+        place001.innerHTML = document.getElementById(target);
+}
+
+function drop007(event) {
+    var data = event.dataTransfer.getData("choice002");
+    event.target.appendChild(document.getElementById(data));
+score001.innerHTML = b++;
+        place001.innerHTML = document.getElementById(target);
+}
+
+function drop008(event) {
+    var data = event.dataTransfer.getData("choice003");
+    event.target.appendChild(document.getElementById(data));
+score001.innerHTML = b++;
+        place001.innerHTML = document.getElementById(target);
+}
+
+function drop009(event) {
+    var data = event.dataTransfer.getData("choice004");
+    event.target.appendChild(document.getElementById(data));
+score001.innerHTML = b++;
+        place001.innerHTML = document.getElementById(target);
+}
+
+function drop010(event) {
+    var data = event.dataTransfer.getData("choice005");
+    event.target.appendChild(document.getElementById(data));
+score001.innerHTML = b++;
+        place001.innerHTML = document.getElementById(target);
+}
+
+
+
+function submit001() {
+if (b > 5) {
+message001.innerHTML = "Congratulations.";
+}
+}
+    </script>
+</body>
+</html>
